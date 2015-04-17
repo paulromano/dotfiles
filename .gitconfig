@@ -1,0 +1,10 @@
+[user]
+	name = Paul Romano
+	email = paul.k.romano@gmail.com
+[alias]
+	meld = difftool -t meld -d
+	tree = log --graph --pretty=\"%C(auto)%h %d [%an] %s\"
+[color]
+	branch = true
+	status = true
+	diff = true
