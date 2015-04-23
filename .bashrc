@@ -12,10 +12,10 @@ function parse_git_branch {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
     echo "("${ref#refs/heads/}")"
 }
-BLACK="\[\033[0;30m\]"
+RESET="\[\033[0;00m\]"
 GREEN="\[\033[0;32m\]"
 YELLOW="\[\033[0;33m\]"
-PS1="$GREEN\w$YELLOW \$(parse_git_branch)$BLACK\$ "
+PS1="$GREEN\w$YELLOW \$(parse_git_branch)$RESET\$ "
 
 # generate profile
 function make_profile {
