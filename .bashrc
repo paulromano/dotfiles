@@ -15,7 +15,8 @@ function parse_git_branch {
 RESET="\[\033[0;00m\]"
 GREEN="\[\033[0;32m\]"
 YELLOW="\[\033[0;33m\]"
-PS1="$GREEN\w$YELLOW \$(parse_git_branch)$RESET\$ "
+PURPLE="\[\033[0;35m\]"
+PS1="$PURPLE\h:$GREEN\w$YELLOW \$(parse_git_branch)$RESET\$ "
 
 # generate profile
 function make_profile {
