@@ -7,6 +7,22 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Find libraries
+function findlib () {
+    for i in $(echo $LD_LIBRARY_PATH | sed -e 's/:/ /g'); do
+        find $i -name lib$1\* 2>/dev/null
+    done
+    for i in $(cat /etc/ld.so.conf); do
+        find $i -name lib$1\* 2>/dev/null
+    done
+}
+
+# Set permissions world-readable
+function worldread () {
+    find . -print0 | xargs -0 chmod a+r
+    find . -type d -print0 | xargs -0 chmod a+x
+}
+
 # Display git branch
 function parse_git_branch {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
